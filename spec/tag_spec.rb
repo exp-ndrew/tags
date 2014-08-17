@@ -1,1 +1,1 @@
-require './lib/spec_helper'
+require 'spec_helper'
