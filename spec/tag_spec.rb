@@ -18,7 +18,7 @@ describe Tag do
     new_tag = Tag.new({name: 'color'})
     new_item.save
     new_tag.save
-    new_tag.assign_to(new_item.name)
+    new_tag.assign_to(new_item)
     expect(new_item.tags).to eq [new_tag]
   end
 

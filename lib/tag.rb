@@ -10,10 +10,15 @@ class Tag < Shared
     @id = attributes[:id]
   end
 
-  def assign_to item_name
+  def assign_to item
     #Tag.assign_to(item)
-    item = Item.search_by_name(item_name)
     DB.exec("INSERT INTO items_tags (tag_id, item_id) VALUES (#{self.id}, #{item.id});")
+  end
+
+  def remove_from item_name
+    #Tag.remove_from(item_name)
+    item = Item.search_by_name(item_name)
+    DB.exec("")
   end
 
   def items

@@ -25,8 +25,16 @@ def main_menu
     new_tag
   when '3'
     list_items
+    ws
+    puts 'Press any key to return'
+    gets.chomp
+    main_menu
   when '4'
     list_tags
+    ws
+    puts 'Press any key to return'
+    gets.chomp
+    main_menu
   when '5'
     item_to_tag
   when '6'
@@ -34,6 +42,10 @@ def main_menu
   when 'x'
     puts "Bye!"
     exit
+  else
+    puts "Please enter a valid input."
+    wait
+    main_menu
   end
 
 end
@@ -64,27 +76,41 @@ end
 def list_items
   ws
   puts 'Here are the items in your collection:'
-  puts Item.list
   ws
-  puts 'Press any key to return'
-  gets.chomp
-  main_menu
-
+  puts Item.list
 end
 
 def list_tags
   ws
   puts 'Here are the tags in your collection:'
-  puts Tag.list
   ws
-  puts 'Press any key to return'
-  gets.chomp
-  main_menu
+  puts Tag.list
 end
 
 def tag_to_item
   # assign a tag to an item
   # Tag.assign_to(item)
+  ws
+  list_items
+  ws
+  puts 'Enter the name of the item to which you want to assign a tag:'
+  item_name = gets.chomp
+  ws
+  puts "#{item_name} selected"
+  ws
+  list_tags
+  ws
+  puts "Enter the tag you want to assign to #{item_name}:"
+  tag_name = gets.chomp
+
+  tag = Tag.search_by_name(tag_name)
+  item = Item.search_by_name(item_name)
+
+  tag.assign_to(item)
+
+  puts "#{tag.name} successfully assigned to #{item.name}!"
+  wait
+  main_menu
 end
 
 def item_to_tag

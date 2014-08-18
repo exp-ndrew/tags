@@ -10,9 +10,8 @@ class Item < Shared
     @id = attributes[:id]
   end
 
-  def assign_to tag_name
+  def assign_to tag
     #Item.assign_to(tag_name)
-    tag = Tag.search_by_name(tag_name)
     DB.exec("INSERT INTO items_tags (item_id, tag_id) VALUES (#{self.id}, #{tag.id});")
   end
 
