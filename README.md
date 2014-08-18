@@ -29,6 +29,11 @@ Shared methods between both classes:
 `self.remove_from(other_class)`  
 `self.search_by_name`  
 
+
+## Issues
+
+* duplicates exist on join table when a tag/item is assigned to an item/tag multiple times
+
 ## Meta
 
 Database Basics assessment for [Epicodus](http://epicodus.com)

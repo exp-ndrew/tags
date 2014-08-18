@@ -21,5 +21,16 @@ describe Tag do
     new_tag.assign_to(new_item)
     expect(new_item.tags).to eq [new_tag]
   end
-
+  it 'removes a tag from an item' do
+    new_item = Item.new({name: 'Red'})
+    new_tag1 = Tag.new({name: 'color'})
+    new_tag2 = Tag.new({name: 'mood'})
+    new_item.save
+    new_tag1.save
+    new_tag2.save
+    new_tag1.assign_to(new_item)
+    new_tag2.assign_to(new_item)
+    new_tag2.remove_from(new_item)
+    expect(new_item.tags).to eq [new_tag1]
+  end
 end
