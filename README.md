@@ -15,10 +15,10 @@ The user can:
 * remove an item from the collection (`Item.remove`);
   * implicitly remove the removed item's tag associations
 * remove a tag from an item (`Tag.remove_from`);
-  * tags with no items are removed automatically *WIP*
+  * tags with no items are removed automatically  *WIP*
 * list all tags currently assigned to an item (`Item.list_tags`) 
-* rename a tag (`Tag.rename`) *WIP*
-* rename an item (`Item.rename`) *WIP*
+* rename a tag (`Tag.rename`)
+* rename an item (`Item.rename`)
 * return all the tags assigned to a particular item (`Item.tags`) 
 * return the items tagged with a particular tag. (`Tag.items`) 
 
