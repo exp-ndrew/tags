@@ -11,7 +11,7 @@ The user can:
 * list all items (`Item.all`, `Item.list`)
 * list all tags (`Tag.all`, `Tag.list`)
 * assign a tag to an item (`Tag.attach_to(item)`)
-* give an item a tag (`Item.attach_to(tag)`)
+* assign an item to a tag (`Item.attach_to(tag)`)
 * remove a tag from an item (`Tag.remove_from`); tags with no items are removed automatically
 * rename a tag (`Tag.rename`)
 * rename an item (`Item.rename`)

@@ -20,15 +20,6 @@ class Shared
     all_objects
   end
 
-  def save
-    save = DB.exec("INSERT INTO #{self.table} (name) VALUES ('#{self.name}') RETURNING id;")
-    @id = save.first['id'].to_i
-  end
-
-  def == another_object
-    self.name == another_object.name
-  end
-
   def self.list
     table_name = self.to_s.downcase.pluralize
     from_db = DB.exec("SELECT * FROM #{table_name};")
@@ -38,5 +29,22 @@ class Shared
     end
     all_names
   end
+
+  def self.search_by_name name
+    #required by the assign_to method
+    self.all.find { |object| object.name == name}
+  end
+
+  def save
+    save = DB.exec("INSERT INTO #{self.table} (name) VALUES ('#{self.name}') RETURNING id;")
+    @id = save.first['id'].to_i
+  end
+
+  def == another_object
+    self.name == another_object.name
+  end
+
+
+
 
 end

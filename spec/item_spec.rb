@@ -13,4 +13,13 @@ describe Item do
     new_item2.save
     expect(Item.list).to eq [new_item1.name, new_item2.name]
   end
+  it 'assigns an item to a tag' do
+    new_item = Item.new({name: 'Red'})
+    new_tag = Tag.new({name: 'color'})
+    new_item.save
+    new_tag.save
+    new_item.assign_to(new_tag.name)
+    expect(new_tag.items).to eq [new_item]
+  end
+
 end
