@@ -12,11 +12,13 @@ def main_menu
   puts "3 > List All Items in Collection"
   puts "5 > Assign Item to Tag"
   puts "7 > Remove Item from Collection"
+  puts "9 > Rename Item"
   ws
   puts "2 > New Tag"
   puts "4 > List All Tags"
   puts "6 > Assign Tag to Item"
   puts "8 > Remove Tag from Item"
+  puts "10 > Rename Tag"
   puts "X > Exit"
 
   input = gets.chomp
@@ -46,6 +48,10 @@ def main_menu
     remove_item_from_collection
   when '8'
     remove_tag_from_item
+  when '9'
+    rename_item
+  when '10'
+    rename_tag
   when 'x'
     puts "Bye!"
     exit
@@ -218,10 +224,36 @@ def remove_tag_from_item
   wait
   wait
   main_menu
+end
+
+def rename_item
+  ws
+  list_items
+  ws
 
 
 end
 
+def rename_tag
+  ws
+  list_tags
+  ws
+  puts "Type the name of the tag to rename:"
+  tag_name = gets.chomp
+
+  # ADD VALIDATION to check if the item_name exists in the table
+  ws
+  puts "Enter a new name for #{tag_name}:"
+  new_name = gets.chomp
+
+  tag = Tag.search_by_name(tag_name)
+  tag.rename(new_name)
+
+  puts "'#{tag_name} was renamed to '#{new_name}!'"
+  wait
+  wait
+  main_menu
+end
 
 ## UI HELPER THINGS ##
 
