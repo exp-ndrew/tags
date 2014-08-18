@@ -24,6 +24,11 @@ class Item < Shared
     tags
   end
 
+  def remove
+    DB.exec("DELETE FROM items WHERE id = #{self.id}")
+    DB.exec("DELETE FROM items_tags WHERE item_id = #{self.id}")
+  end
+
   def tags
     #lists the tags assigned to a particular item
     found = []

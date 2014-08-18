@@ -177,6 +177,18 @@ def remove_tag_from_item
   puts "#{item_name}'s current tags:"
   puts item.list_tags
 
+  puts "Enter the tag you wish to remove from #{item_name}"
+  tag_name = gets.chomp
+
+  tag = Tag.search_by_name(tag_name)
+
+  tag.remove_from(item)
+
+  puts "#{item_name} has been untagged '#{tag_name}!'"
+  wait
+  wait
+  main_menu
+
 
 end
 

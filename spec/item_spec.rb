@@ -29,5 +29,16 @@ describe Item do
     new_item.assign_to(new_tag)
     expect(new_item.list_tags).to eq ['color']
   end
+  it 'removes an item from the collection, and removes all associated rows on the items_tags table' do
+    new_item = Item.new({name: 'Red'})
+    new_tag = Tag.new({name: 'color'})
+    new_item.save
+    new_tag.save
+    new_item.assign_to(new_tag)
+    binding.pry
+    new_item.remove
+    binding.pry
+    expect(Item.all).to eq []
+  end
 
 end
