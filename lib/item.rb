@@ -8,6 +8,7 @@ class Item < Shared
     @table = 'items'
     @name = attributes[:name]
     @id = attributes[:id]
+    @opposite = 'tags'
   end
 
   def assign_to tag

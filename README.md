@@ -42,7 +42,7 @@ Shared methods between both classes:
 
 * implement a `find_or_create` method for adding tags; user simply enters the name of the tag they wish to assign and the method either finds the existing tag with the given name, or it creates a tag with the given name if one doesn't exist.
 * implement a `Tag.purge_unused` method for removing tags that have no items associated with them
-* refactor the UI so the menu options is clearer
+* refactor the UI so the menu options are clearer
 * allow user to assign multiple tags at once (input separated by commas)
 * show tags assigned to each item in the item list
 * show items assigned to each tag in the tag list

@@ -97,7 +97,12 @@ def list_items
   ws
   puts 'Here are the items in your collection:'
   ws
-  puts Item.list
+  Item.all.each do |item|
+    puts item.name
+    ws
+    item.tags.each { |x| puts "\s\s\s(#{x.name})" + "\n" }
+    ws
+  end
 end
 
 def list_tags
