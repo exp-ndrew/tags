@@ -29,4 +29,14 @@ class Shared
     self.name == another_object.name
   end
 
+  def self.list
+    table_name = self.to_s.downcase.pluralize
+    from_db = DB.exec("SELECT * FROM #{table_name};")
+    all_names = []
+    from_db.each do |object|
+      all_names << object['name']
+    end
+    all_names
+  end
+
 end
