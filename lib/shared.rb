@@ -44,6 +44,10 @@ class Shared
     self.name == another_object.name
   end
 
+  def rename new_name
+    self.name = new_name
+    self.save
+  end
 
 
 
