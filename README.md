@@ -16,6 +16,7 @@ The user can:
 * assign an item to a tag (`Item.attach_to(tag)`)
 * remove an item from the collection (`Item.remove`);
   * implicitly remove the removed item's tag associations
+* globally remove a tag from all items it is associated with (`Tag.remove`)
 * remove a tag from an item (`Tag.remove_from`);
   * tags with no items are removed automatically  *WIP*
 * list all tags currently assigned to an item (`Item.list_tags`) 
