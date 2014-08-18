@@ -9,9 +9,11 @@ def main_menu
   header
 
   puts "1 > New Item"
-  puts "2 > New Tag"
   puts "3 > List All Items"
+  puts "5 > Assign Item to Tag"
+  puts "2 > New Tag"
   puts "4 > List All Tags"
+  puts "6 > Assign Tag to Item"
   puts "X > Exit"
 
   input = gets.chomp
@@ -25,6 +27,10 @@ def main_menu
     list_items
   when '4'
     list_tags
+  when '5'
+    item_to_tag
+  when '6'
+    tag_to_item
   when 'x'
     puts "Bye!"
     exit
@@ -74,6 +80,16 @@ def list_tags
   puts 'Press any key to return'
   gets.chomp
   main_menu
+end
+
+def tag_to_item
+  # assign a tag to an item
+  # Tag.assign_to(item)
+end
+
+def item_to_tag
+  # assign an item to a tag
+  # Item.assign_to(tag)
 end
 
 
