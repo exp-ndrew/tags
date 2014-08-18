@@ -231,6 +231,22 @@ def rename_item
   list_items
   ws
 
+  puts "Type the name of the tag to rename:"
+  item_name = gets.chomp
+
+  # ADD VALIDATION to check if the item_name exists in the table
+  ws
+  puts "Enter a new name for #{item_name}:"
+  new_name = gets.chomp
+
+  item = Item.search_by_name(item_name)
+  item.rename(new_name)
+
+  puts "'#{item_name} was renamed to '#{new_name}!'"
+  wait
+  wait
+  main_menu
+
 
 end
 
