@@ -13,6 +13,7 @@ The user can:
 * assign a tag to an item (`Tag.attach_to(item)`)
 * assign an item to a tag (`Item.attach_to(tag)`)
 * remove a tag from an item (`Tag.remove_from`); tags with no items are removed automatically
+* list all tags currently assigned to an item (`Item.list_tags`)
 * rename a tag (`Tag.rename`)
 * rename an item (`Item.rename`)
 * return all the tags assigned to a particular item (`Item.tags`)
