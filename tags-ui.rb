@@ -96,10 +96,12 @@ def tag_to_item
   puts 'Enter the name of the item to which you want to assign a tag:'
   item_name = gets.chomp
   ws
+  # ADD VALIDATION to check if the item_name exists in the table
   puts "#{item_name} selected"
   ws
   list_tags
   ws
+
   puts "Enter the tag you want to assign to #{item_name}:"
   tag_name = gets.chomp
 
@@ -116,6 +118,30 @@ end
 def item_to_tag
   # assign an item to a tag
   # Item.assign_to(tag)
+
+  ws
+  list_tags
+  ws
+  puts 'Enter the name of the tag to which you want to assign a item:'
+  tag_name = gets.chomp
+  ws
+  # ADD VALIDATION to check if the tag_name exists in the table
+  puts "#{tag_name} selected"
+  ws
+  list_items
+  ws
+
+  puts "Enter the item you want to assign to #{tag_name}:"
+  item_name = gets.chomp
+
+  tag = Tag.search_by_name(tag_name)
+  item = Item.search_by_name(item_name)
+
+  item.assign_to(tag)
+
+  puts "#{tag.name} successfully assigned to #{item.name}!"
+  wait
+  main_menu
 end
 
 
