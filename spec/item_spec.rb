@@ -21,5 +21,13 @@ describe Item do
     new_item.assign_to(new_tag)
     expect(new_tag.items).to eq [new_item]
   end
+  it 'lists all tags currently assigned to an item' do
+    new_item = Item.new({name: 'Red'})
+    new_tag = Tag.new({name: 'color'})
+    new_item.save
+    new_tag.save
+    new_item.assign_to(new_tag)
+    expect(new_item.list_tags).to eq ['color']
+  end
 
 end

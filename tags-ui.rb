@@ -9,11 +9,14 @@ def main_menu
   header
 
   puts "1 > New Item"
-  puts "3 > List All Items"
+  puts "3 > List All Items in Collection"
   puts "5 > Assign Item to Tag"
+  puts "7 > Remove Item from Collection"
+  ws
   puts "2 > New Tag"
   puts "4 > List All Tags"
   puts "6 > Assign Tag to Item"
+  puts "8 > Remove Tag from Item"
   puts "X > Exit"
 
   input = gets.chomp
@@ -39,6 +42,10 @@ def main_menu
     item_to_tag
   when '6'
     tag_to_item
+  when '7'
+    remove_item_from_collection
+  when '8'
+    remove_tag_from_item
   when 'x'
     puts "Bye!"
     exit
@@ -59,7 +66,6 @@ def new_item
   puts "#{input} item created!"
   wait
   main_menu
-
 end
 
 def new_tag
@@ -148,6 +154,30 @@ def item_to_tag
   wait
   wait
   main_menu
+end
+
+def remove_item_from_collection
+#delete an item from the items table
+#delete rows in items_tags table where the item is referenced
+end
+
+def remove_tag_from_item
+  ws
+  list_items
+  ws
+  puts 'Enter the name of the item from which you would like to remove a tag:'
+  item_name = gets.chomp
+  
+  ws
+  # ADD VALIDATION to check if the item_name exists in the table
+  puts "#{item_name} selected"
+
+  item = Item.search_by_name(item_name)
+
+  puts "#{item_name}'s current tags:"
+  puts item.list_tags
+
+
 end
 
 

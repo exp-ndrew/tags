@@ -15,6 +15,15 @@ class Item < Shared
     DB.exec("INSERT INTO items_tags (item_id, tag_id) VALUES (#{self.id}, #{tag.id});")
   end
 
+  def list_tags
+    tags = []
+    from_db = DB.exec("SELECT tags.name FROM tags JOIN items_tags ON tags.id = items_tags.tag_id WHERE items_tags.item_id = #{self.id}")
+    from_db.each do |tag|
+      tags << tag['name']
+    end
+    tags
+  end
+
   def tags
     #lists the tags assigned to a particular item
     found = []
