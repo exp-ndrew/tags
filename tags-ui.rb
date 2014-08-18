@@ -19,6 +19,7 @@ def main_menu
   puts "6 > Assign Tag to Item"
   puts "8 > Remove Tag from Item"
   puts "10 > Rename Tag"
+  puts "11 > Remove Tag from Collection"
   puts "X > Exit"
 
   input = gets.chomp
@@ -52,6 +53,8 @@ def main_menu
     rename_item
   when '10'
     rename_tag
+  when '11'
+    remove_tag_from_collection
   when 'x'
     puts "Bye!"
     exit
@@ -187,6 +190,42 @@ def remove_item_from_collection
       main_menu
     when 'n'
       puts "No items were removed from the collection."
+      wait
+      wait
+      main_menu
+    else
+      puts "Please enter 'y' for yes or 'n' for no:"
+      redo
+    end
+  end
+end
+
+def remove_tag_from_collection
+  #delete an tag from the tags table
+  #delete rows in items_tags table where the tag is referenced
+  ws
+  list_tags
+  ws
+  puts 'Enter the name of the tag to delete:'
+  tag_name = gets.chomp
+
+  # ADD VALIDATION to check if the tag_name exists in the table
+  ws
+  puts "Are you sure you want to delete the tag '#{tag_name}?'"
+  puts "(Items with this tag will remain, but the tag will be dissociated from them.)"
+  puts "Enter y/n:"
+  loop do
+    confirm = gets.chomp
+    case confirm
+    when 'y'
+      tag = Tag.search_by_name(tag_name)
+      tag.remove
+      puts "#{tag_name} has been successfully removed from the collection!"
+      wait
+      wait
+      main_menu
+    when 'n'
+      puts "No tags were removed from the collection."
       wait
       wait
       main_menu

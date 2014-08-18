@@ -15,6 +15,11 @@ class Tag < Shared
     DB.exec("INSERT INTO items_tags (tag_id, item_id) VALUES (#{self.id}, #{item.id});")
   end
 
+  def remove
+    DB.exec("DELETE FROM tags WHERE id = #{self.id}")
+    DB.exec("DELETE FROM items_tags WHERE tag_id = #{self.id}")
+  end
+
   def remove_from item
     #Tag.remove_from(item)
     DB.exec("DELETE FROM items_tags WHERE tag_id = #{self.id} AND item_id = #{item.id};")
