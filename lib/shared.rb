@@ -45,6 +45,7 @@ class Shared
   end
 
   def rename new_name
+    self.name = new_name
     DB.exec("UPDATE #{self.table} SET name = '#{new_name}' WHERE id = #{self.id};")
   end
 

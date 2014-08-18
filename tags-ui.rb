@@ -246,8 +246,6 @@ def rename_item
   wait
   wait
   main_menu
-
-
 end
 
 def rename_tag

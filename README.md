@@ -9,7 +9,9 @@ The user can:
 * create new items (`Item.new`, `Item.save`)
 * create new tags (`Tag.new`, `Tag.save`)
 * list all items (`Item.all`, `Item.list`)
+  * see from the item list which tags an item has
 * list all tags (`Tag.all`, `Tag.list`)
+  * see from the tag list which items are assigned to each tag
 * assign a tag to an item (`Tag.attach_to(item)`)
 * assign an item to a tag (`Item.attach_to(tag)`)
 * remove an item from the collection (`Item.remove`);
@@ -24,7 +26,6 @@ The user can:
 
 Shared methods between both classes:
 
-`self.new`  
 `self.save`  
 `self.list`  
 `self.all`  
