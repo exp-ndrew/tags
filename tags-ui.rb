@@ -157,8 +157,38 @@ def item_to_tag
 end
 
 def remove_item_from_collection
-#delete an item from the items table
-#delete rows in items_tags table where the item is referenced
+  #delete an item from the items table
+  #delete rows in items_tags table where the item is referenced
+  ws
+  list_items
+  ws
+  puts 'Enter the name of the item to delete:'
+  item_name = gets.chomp
+
+  # ADD VALIDATION to check if the item_name exists in the table
+  ws
+  puts "Are you sure you want to delete the item '#{item_name}?'"
+  puts "Enter y/n:"
+  loop do
+    confirm = gets.chomp
+    case confirm
+    when 'y'
+      item = Item.search_by_name(item_name)
+      item.remove
+      puts "#{item_name} has been successfully removed from the collection!"
+      wait
+      wait
+      main_menu
+    when 'n'
+      puts "No items were removed from the collection."
+      wait
+      wait
+      main_menu
+    else
+      puts "Please enter 'y' for yes or 'n' for no:"
+      redo
+    end
+  end
 end
 
 def remove_tag_from_item
