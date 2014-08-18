@@ -27,6 +27,7 @@ Shared methods between both classes:
 `self.rename`  
 `self.attach_to(other_class)`  
 `self.remove_from(other_class)`  
+`self.search_by_name`  
 
 ## Meta
 
