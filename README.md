@@ -6,18 +6,21 @@ A simple tag system to demonstrate a many-to-many relationship through a join ta
 
 The user can:
 
-* create new items (`Item.new`, `Item.save`)
-* create new tags (`Tag.new`, `Tag.save`)
-* list all items (`Item.all`, `Item.list`)
-* list all tags (`Tag.all`, `Tag.list`)
-* assign a tag to an item (`Tag.attach_to(item)`)
-* assign an item to a tag (`Item.attach_to(tag)`)
-* remove a tag from an item (`Tag.remove_from`); tags with no items are removed automatically
-* list all tags currently assigned to an item (`Item.list_tags`)
+* create new items (`Item.new`, `Item.save`) [WORKING]
+* create new tags (`Tag.new`, `Tag.save`) [WORKING]
+* list all items (`Item.all`, `Item.list`) [WORKING]
+* list all tags (`Tag.all`, `Tag.list`) [WORKING]
+* assign a tag to an item (`Tag.attach_to(item)`) [WORKING]
+* assign an item to a tag (`Item.attach_to(tag)`) [WORKING]
+* remove an item from the collection (`Item.remove`); [WORKING]
+  * implicitly remove the removed item's tag associations
+* remove a tag from an item (`Tag.remove_from`); [WORKING]
+  * tags with no items are removed automatically
+* list all tags currently assigned to an item (`Item.list_tags`)  [WORKING]
 * rename a tag (`Tag.rename`)
 * rename an item (`Item.rename`)
-* return all the tags assigned to a particular item (`Item.tags`)
-* return the items tagged with a particular tag. (`Tag.items`)
+* return all the tags assigned to a particular item (`Item.tags`)  [WORKING]
+* return the items tagged with a particular tag. (`Tag.items`)  [WORKING]
 
 Shared methods between both classes:
 
@@ -26,14 +29,13 @@ Shared methods between both classes:
 `self.list`  
 `self.all`  
 `self.rename`  
-`self.attach_to(other_class)`  
-`self.remove_from(other_class)`  
 `self.search_by_name`  
 
 
 ## Issues
 
 * duplicates exist on join table when a tag/item is assigned to an item/tag multiple times
+
 
 ## Meta
 
