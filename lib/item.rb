@@ -11,7 +11,7 @@ class Item < Shared
   end
 
   def assign_to tag
-    #Item.assign_to(tag_name)
+    #item.assign_to(tag_name)
     DB.exec("INSERT INTO items_tags (item_id, tag_id) VALUES (#{self.id}, #{tag.id});")
   end
 
@@ -22,11 +22,6 @@ class Item < Shared
       tags << tag['name']
     end
     tags
-  end
-
-  def remove
-    DB.exec("DELETE FROM items WHERE id = #{self.id}")
-    DB.exec("DELETE FROM items_tags WHERE item_id = #{self.id}")
   end
 
   def tags

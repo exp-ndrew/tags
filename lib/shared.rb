@@ -31,7 +31,6 @@ class Shared
   end
 
   def self.search_by_name name
-    #required by the assign_to method
     self.all.find { |object| object.name == name}
   end
 
@@ -49,6 +48,9 @@ class Shared
     DB.exec("UPDATE #{self.table} SET name = '#{new_name}' WHERE id = #{self.id};")
   end
 
-
+  def remove
+    DB.exec("DELETE FROM #{self.table} WHERE id = #{self.id}")
+    DB.exec("DELETE FROM items_tags WHERE #{self.class}_id = #{self.id}")
+  end
 
 end

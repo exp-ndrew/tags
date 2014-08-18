@@ -9,17 +9,22 @@ def main_menu
   header
 
   puts "1 > New Item"
-  puts "3 > List All Items in Collection"
-  puts "5 > Assign Item to Tag"
-  puts "7 > Remove Item from Collection"
-  puts "9 > Rename Item"
-  ws
   puts "2 > New Tag"
-  puts "4 > List All Tags"
+  ws
+  # puts "5 > Assign Item to Tag"
+
   puts "6 > Assign Tag to Item"
   puts "8 > Remove Tag from Item"
-  puts "10 > Rename Tag"
+  ws
+  puts "7 > Remove Item from Collection"
   puts "11 > Remove Tag from Collection"
+  ws
+  puts "3 > List All Items"
+  puts "4 > List All Tags"
+  ws
+  puts "9 > Rename Item"
+  puts "10 > Rename Tag"
+  ws
   puts "X > Exit"
 
   input = gets.chomp
