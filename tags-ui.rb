@@ -8,22 +8,21 @@ def main_menu
 
   header
 
+  puts "Items Menu:"
+  ws
   puts "1 > New Item"
-  puts "2 > New Tag"
+  puts "2 > List All Items"
+  puts "3 > Remove Item from Collection"
+  puts "4 > Rename Item"
   ws
-  # puts "5 > Assign Item to Tag"
-
-  puts "6 > Assign Tag to Item"
-  puts "8 > Remove Tag from Item"
+  puts "Tags Menu:"
   ws
-  puts "7 > Remove Item from Collection"
-  puts "11 > Remove Tag from Collection"
-  ws
-  puts "3 > List All Items"
-  puts "4 > List All Tags"
-  ws
-  puts "9 > Rename Item"
-  puts "10 > Rename Tag"
+  puts "5 > New Tag"
+  puts "6 > List All Tags"
+  puts "7 > Rename Tag"
+  puts "8 > Assign Tag to Item"
+  puts "9 > Remove Tag from Item"
+  puts "10 > Remove Tag from Collection"
   ws
   puts "X > Exit"
 
@@ -33,32 +32,30 @@ def main_menu
   when '1'
     new_item
   when '2'
-    new_tag
-  when '3'
     list_items
     ws
     puts 'Press any key to return'
     gets.chomp
     main_menu
+  when '3'
+    remove_item_from_collection
   when '4'
+    rename_item
+  when '5'
+    new_tag
+  when '6'
     list_tags
     ws
     puts 'Press any key to return'
     gets.chomp
     main_menu
-  when '5'
-    item_to_tag
-  when '6'
-    tag_to_item
   when '7'
-    remove_item_from_collection
-  when '8'
-    remove_tag_from_item
-  when '9'
-    rename_item
-  when '10'
     rename_tag
-  when '11'
+  when '8'
+    tag_to_item
+  when '9'
+    remove_tag_from_item
+  when '10'
     remove_tag_from_collection
   when 'x'
     puts "Bye!"
@@ -102,6 +99,7 @@ def list_items
     ws
     item.tags.each { |x| puts "\s\s\s(#{x.name})" + "\n" }
     ws
+    puts "============"
   end
 end
 

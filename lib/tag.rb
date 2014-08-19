@@ -12,17 +12,18 @@ class Tag < Shared
   end
 
   def assign_to item
-    #tag.assign_to(item)
     DB.exec("INSERT INTO items_tags (tag_id, item_id) VALUES (#{self.id}, #{item.id});")
   end
 
   def remove_from item
-    #tag.remove_from(item)
     DB.exec("DELETE FROM items_tags WHERE tag_id = #{self.id} AND item_id = #{item.id};")
   end
 
+  def self.purge_unused
+    # WIP
+  end
+
   def items
-    #lists the items assigned to a particular tag
     found = []
     items = DB.exec("SELECT * FROM items_tags WHERE tag_id = '#{@id}';")
     items.each do |item|

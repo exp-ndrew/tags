@@ -12,7 +12,6 @@ class Item < Shared
   end
 
   def assign_to tag
-    #item.assign_to(tag_name)
     DB.exec("INSERT INTO items_tags (item_id, tag_id) VALUES (#{self.id}, #{tag.id});")
   end
 
@@ -26,7 +25,6 @@ class Item < Shared
   end
 
   def tags
-    #lists the tags assigned to a particular item
     found = []
     tags = DB.exec("SELECT * FROM items_tags WHERE item_id = '#{@id}';")
     tags.each do |tag|
